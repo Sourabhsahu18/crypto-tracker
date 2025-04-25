@@ -44,7 +44,8 @@ The application follows a **React-Redux** architecture where:
 1. Clone the repository:
 
    ```bash
-   git clone   https://github.com/Sourabhsahu18/crypto-tracker.git
+   
+    https://github.com/Sourabhsahu18/crypto-tracker.git
   
 
 
