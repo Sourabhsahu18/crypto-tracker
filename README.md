@@ -1,70 +1,72 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Real-Time Crypto Price Tracker
 
-In the project directory, you can run:
+A real-time cryptocurrency price tracker built with React and Redux Toolkit. This application simulates WebSocket updates and displays real-time cryptocurrency prices, changes, volume, and other details in a responsive table.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React.js, Redux Toolkit, CSS
+- **Backend**: (Mocked real-time data via Redux, no backend in this project)
+- **State Management**: Redux Toolkit (`createSlice`, `configureStore`)
+- **Styling**: Plain CSS (no external libraries)
+- **Charting**: Static 7-day chart images (SVG format)
+- **Utilities**: `setInterval` for simulating real-time data updates
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Real-time Data Updates**: Simulates WebSocket updates for cryptocurrency data every 1-2 seconds (price, percentage change, volume).
+- **Responsive Table**: Displays asset details like price, 1h, 24h, and 7d percentage changes, market cap, volume, circulating supply, and a 7-day chart.
+- **Color-Coded Changes**: Green for positive percentage changes, red for negative changes.
+- **Redux State Management**: All data is managed in Redux with optimized re-renders using `useSelector`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Architecture
 
-### `npm run build`
+The application follows a **React-Redux** architecture where:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Components**: The core UI of the app is built using React functional components.
+   - `CryptoTable`: Displays a table of all cryptocurrencies.
+   - `CryptoRow`: Represents each cryptocurrency row in the table with details like price, change percentages, and volume.
+2. **State Management (Redux)**: 
+   - **Actions**: The `updateAsset` action updates the state with new values received via the simulated WebSocket.
+   - **Reducers**: The data for all assets is stored in the Redux store under `crypto.assets`.
+   - **Store**: The Redux store is configured with the crypto slice reducer.
+3. **Helper Utilities**: Functions to generate random changes for price, percentage change, and volume, simulating real-time updates.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup Instructions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- **Node.js** (version 14 or higher) and **npm**  installed.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   git clone  
+  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Navigate into the project directory:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+cd crypto-price-tracker
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Install the dependencies:
 
-### Code Splitting
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## To run the app locally:
 
-### Analyzing the Bundle Size
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### My Local Video
 
-### Deployment
+<video width="640" height="360" controls>
+  <source src="src/assets/Demo_Gif.gif" type="gif/mp4">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</video>

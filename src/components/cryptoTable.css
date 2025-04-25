@@ -1,0 +1,167 @@
+
+/* Container for the entire crypto table with horizontal scroll for overflow */
+.crypto-table-container {
+    overflow-x: auto;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 5px;
+  }
+  
+  /* Base styles for the table element */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #e6e6e6;
+  }
+  
+  /* Styles for table header and data cells */
+  th, td {
+    border: 1px solid #2d4059;
+    padding: 10px 8px;
+    text-align: left;
+  }
+  
+  /* Table header styles with gradient background and text shadow */
+  th {
+    background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Even rows have a semi-transparent background for zebra striping */
+  tr:nth-child(even) {
+    background-color: rgba(45, 64, 89, 0.3);
+  }
+  
+  /* Odd rows have a different semi-transparent background for zebra striping */
+  tr:nth-child(odd) {
+    background-color: rgba(26, 26, 46, 0.5);
+  }
+  
+  /* Hover effect for rows with subtle gradient and scale transform */
+  tr:hover {
+    background: linear-gradient(90deg, rgba(87, 113, 111, 0.675) 0%, rgba(74, 0, 224, 0.1) 100%);
+    transform: scale(1.005);
+    transition: all 0.2s ease;
+  }
+  
+  /* Positive value styling in green and bold */
+  .positive {
+    color: #00e676;
+    font-weight: bold;
+  }
+  
+  /* Negative value styling in red and bold */
+  .negative {
+    color: #ff5252;
+    font-weight: bold;
+  }
+  
+  /* Container for name and logo aligned horizontally */
+  .name-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Logo styling with size, rounded shape, gradient background, and shadow */
+  .logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #19f545 0%, #1c0212 100%);
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Container for name and symbol stacked vertically */
+  .name-symbol {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Styling for the cryptocurrency name */
+  .name {
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  /* Styling for the cryptocurrency symbol with uppercase and smaller font */
+  .symbol {
+    color: #a7a9be;
+    font-size: 0.9em;
+    text-transform: uppercase;
+  }
+  
+  /* Sparkline chart container with size, gradient background, and rounded corners */
+  .sparkline {
+    width: 100px;
+    height: 30px;
+    background: linear-gradient(135deg, rgba(0, 230, 118, 0.1) 0%, rgba(0, 230, 118, 0.3) 100%);
+    border-radius: 4px;
+   
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    /* Change container background for mobile */
+    .crypto-table-container {
+      background: #16213e;
+    }
+    
+    /* Make table elements block for responsive layout */
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+  
+    /* Hide table header row off-screen */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+  
+    /* Style each row as a card with border, margin, background, and rounded corners */
+    tr {
+      border: 1px solid #4a00e0;
+      margin-bottom: 1em;
+      background: rgba(26, 26, 46, 0.7) !important;
+      border-radius: 8px;
+    }
+  
+    /* Style table cells for mobile with padding and relative positioning */
+    td {
+      border: none;
+      border-bottom: 1px solid rgba(142, 45, 226, 0.3);
+      position: relative;
+      padding-left: 50%;
+      color: #e6e6e6;
+    }
+  
+    /* Add labels before each cell content using data-column attribute */
+    td:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-column);
+      font-weight: bold;
+      color: #8e2de2;
+    }
+  
+    /* Hide less important columns on mobile for better readability */
+    th:nth-child(7), td:nth-child(7), /* Market Cap */
+    th:nth-child(9), td:nth-child(9), /* Circulating Supply */
+    th:nth-child(10), td:nth-child(10) /* Max Supply */ {
+      display: none;
+    }
+  }
