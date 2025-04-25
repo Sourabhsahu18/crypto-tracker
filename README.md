@@ -67,7 +67,4 @@ npm start
 
 ### My Local Video
 
-<video width="640" height="360" controls>
-  <source src="src/assets/Demo_Gif.gif" type="gif/mp4">
-
-</video>
+![Demo](src/assets/Demo_Gif.gif)
